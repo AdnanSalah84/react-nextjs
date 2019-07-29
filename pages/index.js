@@ -1,25 +1,31 @@
-// pages/index.js
-
 import Layout from '../components/MyLayout';
+import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
 
-// export default function Index() {
-//     return (
-//         <Layout>
-//             <p>Hello Next.js</p>
-//         </Layout>
-//     );
-// }
+const Index = props => (
+    <Layout>
+        <h1>Batman TV Shows</h1>
+        <ul>
+            {props.shows.map(show => (
+                <li key={show.id}>
+                    <Link href="/p/[id]" as={`/p/${show.id}`}>
+                        <a>{show.name}</a>
+                    </Link>
+                </li>
+            ))}
+        </ul>
+    </Layout>
+);
 
-// Mehtod 1
+Index.getInitialProps = async function () {
+    const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+    const data = await res.json();
 
-/*const Page = () => <p>Hello Next.js</p>;
+    console.log(`Show data fetched. Count: ${data.length}`);
 
-export default withLayout(Page);*/
+    return {
+        shows: data.map(entry => entry.show)
+    };
+};
 
-// Mehtod 2
-
-const indexPageContent = <p>Hello Next.js</p>;
-
-export default function Index() {
-    return <Layout content={indexPageContent} />;
-}
+export default Index;
