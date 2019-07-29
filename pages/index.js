@@ -1,7 +1,25 @@
-const Index = () => (
-    <div>
-        <p>Hello Next.js</p>
-    </div>
-);
+// pages/index.js
 
-export default Index;
+import Layout from '../components/MyLayout';
+
+// export default function Index() {
+//     return (
+//         <Layout>
+//             <p>Hello Next.js</p>
+//         </Layout>
+//     );
+// }
+
+// Mehtod 1
+
+/*const Page = () => <p>Hello Next.js</p>;
+
+export default withLayout(Page);*/
+
+// Mehtod 2
+
+const indexPageContent = <p>Hello Next.js</p>;
+
+export default function Index() {
+    return <Layout content={indexPageContent} />;
+}
