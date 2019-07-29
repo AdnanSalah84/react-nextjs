@@ -1,2 +1,6 @@
 /node_modules
-/.next
+.next
+.next/build-manifest.json
+.next/server/pages-manifest.json
+.next/static/runtime/webpack.js
+.next/static/runtime/webpack.js.map
