@@ -31,9 +31,9 @@ export default withLayout; */
 
 const Layout = props => (
     <div style={layoutStyle}>
-      <Header />
-      {props.content}
+        <Header />
+        {props.content}
     </div>
-  );
-  
-  export default Layout;
+);
+
+export default Layout;
