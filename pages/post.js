@@ -12,6 +12,8 @@ const Page = () => {
     );
 };
 
+export default Page;
+
 /*const Content = () => {
     const router = useRouter();
     return (
