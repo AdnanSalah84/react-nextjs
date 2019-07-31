@@ -6,16 +6,25 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p %PORT%"
+    "start": "cross-env NODE_ENV=production node server.js",
+    "analyze": "cross-env BUNDLE_ANALYZE=both next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "export": "next export"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@zeit/next-bundle-analyzer": "^0.1.2",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.4",
+    "firebase": "^5.8.6",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-markdown": "^4.1.0"
+    "react-markdown": "^4.1.0",
+    "react-highlight": "^0.12.0"
   }
 }

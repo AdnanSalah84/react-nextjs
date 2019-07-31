@@ -12,3 +12,7 @@ PORT=9000 npm start
 On Windows, you will need to run the commands differently. One option is to install the npm module cross-env into your app. Then run these two commands from the command line: 
 cross-env PORT=8000 npm start 
 cross-env PORT=9000 npm start
+
+"start": "next start -p %PORT%"
+
+npm run analyze:browser
